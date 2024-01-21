@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:href="@{/css/style2.css}" rel="stylesheet">
+<title>PT Istidata</title>
+
+
+</head>
+<body>
+
+	<div align="center">
+	<h1>Aplikasi Data Kendaraan</h1>
+	
+	<div class="wrapper">
+	<div class="form-box search">
+	<form action="#" th:action="@{/search}" th:object="${kendaraan}" method="get">
+		<div class="input-box">
+		<label>Nomor Registrasi :</label><br>
+		<input class="input-box" type="text" name="keyword"></div>
+	<div class="input-box">
+		<label>Nama Pemilik :</label><br>
+		<input class="input-box" type="text" name="keyword"></div>
+	
+		
+	</form>
+	</div>
+	</div>
+<br>
+	<a th:href ="@{/showNewKendaraanForm}"><button type="submit" class="btn">Add</button></a>
+	<Button type="submit" class="btn">Search</Button>
+	<table class="content-table" border="1">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>No Registrasi</th>
+				<th>Nama Pemilik</th>
+				<th>Merk Kendaraan</th>
+				<th>Tahun Pembuatan</th>
+				<th>Kapasitas</th>
+				<th>Warna</th>
+				<th>Bahan Bakar</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="active-row" th:each="kendaraan : ${listKendaraan}">
+				<td th:text=${kendaraan.id}></td>
+				<td th:text=${kendaraan.noreg}></td>
+				<td th:text=${kendaraan.nama}></td>
+				<td th:text=${kendaraan.merk}></td>
+				<td th:text=${kendaraan.tahun}></td>
+				<td th:text="${kendaraan.kapasitas} +cc" ></td>
+				<td th:text=${kendaraan.warna}></td>
+				<td th:text=${kendaraan.bahanbakar}></td>
+				<td><a th:href="@{/showFormForDetail/{id}(id=${kendaraan.id})}">Detail</a>
+				<a th:href="@{/showFormForUpdate/{id}(id=${kendaraan.id})}">Edit</a>
+				<a th:href="@{/deleteKendaraan/{id}(id=${kendaraan.id})}">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

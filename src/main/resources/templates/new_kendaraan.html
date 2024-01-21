@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link th:href="@{/css/style2.css}" rel="stylesheet">
+<title>Add New Data</title>
+</head>
+<body>
+	<div align="center">
+	<h1>Tambah Data Kendaraan</h1>
+	<div class="wrapper2">
+	<div class="form-box search">
+		<form action="#" th:action="@{/saveKendaraan}" th:object="${kendaraan}"
+		method="POST">
+		<div class="input-box">
+		<label>Nomor Registrasi :</label><br>
+			<input type="text" th:field="*{noreg}"
+			placeholder="No Registrasi">
+			<div class="input-box">
+		<label>Nama Pemilik :</label><br>
+			<input type="text" th:field="*{nama}"
+			placeholder="Tahun Pembuatan">
+			<div class="input-box">
+		<label>Merk Kendaraan :</label><br>
+			<input type="text" th:field="*{merk}"
+			placeholder="Nama">
+			<div class="input-box">
+		<label>Alamat Pemilik :</label><br>
+			<input type="text" th:field="*{alamat}"
+			placeholder="Nama">
+			<div class="input-box">
+		<label>Tahun Pembuatan :</label><br>
+			<input type="text" th:field="*{tahun}"
+			placeholder="Kapasitas">
+			<div class="input-box">
+		<label>Kapasitas Silinder :</label><br>
+			<input type="text" th:field="*{kapasitas}"
+			placeholder="Merk Kendaraan">
+			<div class="input-box">
+		<label>Warna Kendaraan :</label><br>
+			<input type="text" th:field="*{warna}"
+			placeholder="Warna">
+			<div class="input-box">
+		<label>Bahan Bakar :</label><br>
+			<input type="text" th:field="*{bahanbakar}"
+			placeholder="Alamat">
+			</form>
+<br>
+			<button class="btn" type="submit">SAVE</button>
+</div>
+</body>
+</html>
